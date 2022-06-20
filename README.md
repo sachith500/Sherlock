@@ -5,7 +5,7 @@ This repository contains experiments for different publications at the intersect
 Follow these steps to evaluate each models.
 1. Download the dataset from [malnet dataset](http://malnet.cc.gatech.edu/image-data/) and prepare the data.
    
-    `python extract-images.py json_file_path`
+    `python extract-image.py json_file_path`
 2. Download the checkpoints to your local folder
 
 | Experiment | Classes (nb_classes) | Checkpoint (model_path) |
