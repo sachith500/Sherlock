@@ -4,8 +4,15 @@ This repository contains experiments for different publications at the intersect
 # Inference and regenerate results
 Follow these steps to evaluate each models.
 1. Download the dataset from [malnet dataset](http://malnet.cc.gatech.edu/image-data/) and prepare the data.
-   
-    `python extract-image.py json_file_path`
+      
+      * Download full-data-as-1GB or full-data-as-6GB and copy all the zip files to a folder.
+      * To recombine file chunks after downloading, run:
+        
+         `cat malnet-image* | tar xzpvf -`
+      * To create the required data files for binary, type and family training or evaluation, please run the following command. 
+    
+         `python extract-images.py json_file_path`
+
 2. Download the checkpoints to your local folder
 
 | Experiment | Classes (nb_classes) | Checkpoint (model_path) |

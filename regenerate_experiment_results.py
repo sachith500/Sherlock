@@ -14,7 +14,7 @@ import utils
 from dataset_folder import ImageFolder
 
 
-def evaluate(data_loader, model, device):
+def evaluate(data_loader, model, device, experiment):
     criterion = torch.nn.CrossEntropyLoss()
     class_to_idx = data_loader.dataset.class_to_idx
     class_map = {v: k for k, v in class_to_idx.items()}
@@ -25,7 +25,7 @@ def evaluate(data_loader, model, device):
     # switch to evaluation mode
     model.eval()
     counter = 0
-    with open('predic_probabilities_binary_test.csv', 'wb') as file:
+    with open(f'predic_probabilities_{experiment}_test.csv', 'wb') as file:
         file.write('image_name,actual_label,predicted_label_index\n'.encode())
         for batch in data_loader:
             images = batch[0]
@@ -143,10 +143,10 @@ def build_transform(is_train, args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('MAE fine-tuning and evaluation script for image classification', add_help=False)
-    parser.add_argument('--model', default='vit_base_patch16_224', type=str, metavar='MODEL',
+    parser.add_argument('--model', default='vit_base_patch16_224', type=str, metavar='MODEL', #vit_base_patch16_224
                         help='Name of model to train')
     # * Finetuning params
-    parser.add_argument('--model_path', default='./output/finetune/checkpoint-99.pth', help='finetune from checkpoint')
+    parser.add_argument('--model_path', default='./outputs/binary.pth', help='finetune from checkpoint')
     parser.add_argument('--model_key', default='model|module', type=str)
     parser.add_argument('--model_prefix', default='', type=str)
 
@@ -165,11 +165,12 @@ if __name__ == '__main__':
     parser.add_argument('--data_set', default='image_folder', choices=['CIFAR', 'IMNET', 'image_folder'],
                         type=str, help='ImageNet dataset path')
     parser.add_argument('--data_path',
-                        default='D:\\bin\\mlprojects\\infer_type\\malnet-image\\data\\malnet_tiny=True\\binary\\test',
+                        default='D:\\datasets\\malnet\\zip\\testmalnet_tiny=False\\binary\\train',
                         type=str,
                         help='dataset path')
-    parser.add_argument('--nb_classes', default=47, type=int,
+    parser.add_argument('--nb_classes', default=2, type=int,
                         help='number of the classification types')
+    parser.add_argument('--experiment', default='binary', type=str,choices=['binary', 'type', 'family'])
     parser.add_argument('--input_size', default=224, type=int, help='images input size')
     parser.add_argument('--color_jitter', type=float, default=0.4, metavar='PCT',
                         help='Color jitter factor (default: 0.4)')
@@ -213,8 +214,6 @@ if __name__ == '__main__':
         drop_path_rate=args.drop_path,
         attn_drop_rate=args.attn_drop_rate,
         drop_block_rate=None,
-        use_mean_pooling=args.use_mean_pooling,
-        init_scale=args.init_scale,
     )
 
     if args.model_path.startswith('https'):
@@ -245,6 +244,8 @@ if __name__ == '__main__':
             new_dict[key[9:]] = checkpoint_model[key]
         elif key.startswith('encoder.'):
             new_dict[key[8:]] = checkpoint_model[key]
+        elif key.startswith('fc_norm.'):
+            new_dict[key[3:]] = checkpoint_model[key]
         else:
             new_dict[key] = checkpoint_model[key]
     checkpoint_model = new_dict
@@ -274,4 +275,4 @@ if __name__ == '__main__':
 
     utils.load_state_dict(model, checkpoint_model, prefix=args.model_prefix)
     model.to(device)
-    evaluate(data_loader_val, model, device)
+    evaluate(data_loader_val, model, device, args.experiment)
