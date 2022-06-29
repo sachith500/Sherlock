@@ -2,6 +2,8 @@ import argparse
 import os
 from collections import OrderedDict
 
+import modeling_finetune #Important
+
 import torch
 from timm.data import create_transform
 from timm.data.constants import \
