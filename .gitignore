@@ -416,3 +416,8 @@ fabric.properties
 outputs/*
 *.csv
 .idea/*
+data/split_info/type/test.txt
+
+data/split_info/type/train.txt
+
+data/split_info/type/val.txt
