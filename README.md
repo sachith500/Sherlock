@@ -50,6 +50,8 @@ Follow these steps to evaluate each models.
 |Type|python regenerate_experiment_results.py --model_path model_path_to_Type --nb_classes 47 --data_path data_path_to_Type|
 |Family|python regenerate_experiment_results.py --model_path model_path_to_Family --nb_classes 696 --data_path data_path_to_Family|
 
+4. After the above step .csv files will be generated with results. Use those .csv files and run {binary/family/type}_classification_metrics_generation.py file to regenerate the results.
+
 # Results
 | Experiment | Classes | F1 | Precision | Recall | Checkpoint |
 | ------ | ------ | ------ | ------ | ------ | ------ |
