@@ -12,7 +12,7 @@ accessibility, and diversity of malicious software.
 ![Binary image](images/binary-image.png "Android APK binary image")
 
 # Inference and regenerate results
-Follow these steps to evaluate each models.
+Follow these steps to evaluate each model.
 1. Download the dataset from [malnet dataset](http://malnet.cc.gatech.edu/image-data/) and prepare the data.
       
       * Download full-data-as-1GB or full-data-as-6GB and copy all the zip files to a folder.
