@@ -1,6 +1,7 @@
 # Sherlock
 This repository contains experiments for different publications at the intersection of Computer Vision and Computer Security.
 
+We are currently #1 on paperswithcode for malware detection: https://paperswithcode.com/dataset/malnet.
 # Dataset [malnet dataset](http://malnet.cc.gatech.edu/image-data/)
 
 ## What is a binary image?
