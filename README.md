@@ -57,8 +57,8 @@ Follow these steps to evaluate each model.
 | Experiment | Classes | F1 | Precision | Recall | Checkpoint |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 |Binary|2|.854 | .920| .810 | [binary.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=SentcupmZqR6GsNd7Cy5112822057&browser=true&filename=binary.pth) |
-|Type|47| .876| .891| .862 | [type.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=TEvV9VPZeyFqrSIDWDmF112822061&browser=true&filename=type.pth) |
-|Family|696| .878| .867| .890 | [family.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=aWPazKFmzZdRj2eXNJZP112822059&browser=true&filename=family.pth) |
+|Type|47| .497| .628| .447 | [type.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=TEvV9VPZeyFqrSIDWDmF112822061&browser=true&filename=type.pth) |
+|Family|696| .491| .568| .461 | [family.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=aWPazKFmzZdRj2eXNJZP112822059&browser=true&filename=family.pth) |
 
 
 
