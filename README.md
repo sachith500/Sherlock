@@ -70,4 +70,14 @@ Follow these steps to evaluate each model.
 |Family|696| .491| .568| .461 | [family.pth](https://mediaflux.researchsoftware.unimelb.edu.au:443/mflux/share.mfjp?_token=aWPazKFmzZdRj2eXNJZP112822059&browser=true&filename=family.pth) |
 
 
+# Citation
+@article{seneviratne2022self,
+  title={Self-supervised vision transformers for malware detection},
+  author={Seneviratne, Sachith and Shariffdeen, Ridwan and Rasnayaka, Sanka and Kasthuriarachchi, Nuran},
+  journal={IEEE Access},
+  volume={10},
+  pages={103121--103135},
+  year={2022},
+  publisher={IEEE}
+}
 
